@@ -37,6 +37,11 @@ export interface Song {
   title: string;
   artist: string; // This could later be an Artist ID or even the full Artist object if needed
   imageUrl: string;
+  slug: string; // Added for URL-friendly routing
+  spotifyUrl?: string;
+  appleMusicUrl?: string;
+  youtubeMusicUrl?: string;
+  // Add other platform URLs as needed
 }
 
 export const artists: Artist[] = [
@@ -99,13 +104,43 @@ export const artists: Artist[] = [
       "https://www.nfrealmusic.com", "https://www.hotnewhiphop.com/667979-nf-rapper", "https://en.wikipedia.org/wiki/NF_discography", "https://en.wikipedia.org/wiki/NF_(rapper)", "https://thesciencesurvey.com/spotlight/2024/02/06/the-legacy-and-impact-of-nate-feuerstein-nf-real-music/", "https://www.instagram.com/nfrealmusic/", "https://www.reddit.com/r/nfrealmusic/comments/fyehdy/curious_how_everyone_here_discovered_nf/", "https://www.reddit.com/r/nfrealmusic/comments/ngezpl/nf_albums_ranked/", "https://www.instagram.com/nfrealmusicnews/", "https://www.reddit.com/r/nfrealmusic/comments/wqn3l4/how_did_yall_find_out_about_nf/", "https://www.allmusic.com/artist/nf-mn0003282827", "https://www.reddit.com/r/nfrealmusic/comments/hd4gtz/list_of_every_nf_song_ever_in_order/", "https://www.reddit.com/r/nfrealmusic/comments/1g60dx9/its_been_almost_2_years_since_hope_dropped_while/", "https://www.famousbirthdays.com/people/nf.html", "https://open.spotify.com/artist/6fOMl44jA4Sp5b9PpYCkzz", "https://www.youtube.com/@NFrealmusic/videos", "https://www.discogs.com/artist/1270883-nf", "https://x.com/nfrealmusic?lang=en", "https://www.youtube.com/channel/UCoRR6OLuIZ2-5VxtnQIaN2w", "https://www.youtube.com/watch?v=OWwB9hGm8_Y"
     ]
   },
-  { id: 2, name: 'Julia Alexa', slug: 'julia-alexa', genre: 'Sad music', imageUrl: '/artists/JuliaAlexa.png' },
-  { id: 3, name: 'Yung Gravy', slug: 'yung-gravy', genre: 'Hip-Hop, Fun', imageUrl: '/artists/YungGravy.png' },
+  { id: 2, name: 'Julia Alexa', slug: 'julia-alexa', genre: 'Sad Music', imageUrl: '/artists/juliaalexa.png' },
+  { id: 3, name: 'Yung Gravy', slug: 'yung-gravy', genre: 'Hip-Hop, Fun', imageUrl: '/artists/yunggravy.png' },
 ];
 
 export const songs: Song[] = [
-  { id: 1, title: 'Story', artist: 'NF', imageUrl: '/songs/story_NF.png' },
-  { id: 2, title: 'Golden Hour', artist: 'River Stewart', imageUrl: '/artists/NF.png' },
-  { id: 3, title: 'Midnight Drive', artist: 'Neon Bloom', imageUrl: '/artists/NF.png' },
-  { id: 4, title: 'Whispering Pines', artist: 'River Stewart', imageUrl: '/artists/NF.png' },
+  {
+    id: 1, 
+    title: 'Story', 
+    artist: 'NF', 
+    imageUrl: '/songs/story_NF.png',
+    slug: 'story-nf', // Example slug
+    spotifyUrl: 'https://open.spotify.com/track/7HiIy4QaA5ud7ZuuyBysKk?si=e2f2562b4e1c426c', // Placeholder - replace with actual URL
+    appleMusicUrl: 'https://music.apple.com/us/music-video/story/1559899600', // Placeholder - replace with actual URL
+    youtubeMusicUrl: 'https://www.youtube.com/watch?v=XSAGLJckRWM' // Placeholder - replace with actual URL
+  },
+  {
+    id: 2, 
+    title: 'Please Hold Me', 
+    artist: 'Julia Alexa', 
+    imageUrl: '/songs/pleaseholdme-juliaalexa.png',
+    slug: 'please-hold-me-julia-alexa', // Example slug
+    spotifyUrl: 'https://open.spotify.com/track/1lIvjNoTaiI8eHkzn4l2lD?si=bf035e865a174c9b', // Placeholder - replace with actual URL
+    appleMusicUrl: 'https://music.apple.com/us/song/please-hold-me/1605906926', // Placeholder - replace with actual URL
+    youtubeMusicUrl: 'https://www.youtube.com/watch?v=31wn2SnzFCM' // Placeholder - replace with actual URL
+  }, 
+  {
+    id: 3, 
+    title: 'Dancing in the Rain', 
+    artist: 'Yung Gravy', 
+    imageUrl: '/songs/dancingintherain_yunggravy_2.png',
+    slug: 'dancing-in-the-rain-yung-gravy' // Example slug
+  },
+  {
+    id: 4, 
+    title: 'body bag', 
+    artist: 'Julia Alexa', 
+    imageUrl: '/songs/bodybag_juliaalexa.png',
+    slug: 'body-bag-julia-alexa' // Example slug
+  },
 ]; 

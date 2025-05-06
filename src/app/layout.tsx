@@ -12,33 +12,48 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  // Force initial theme application from localStorage or system preference
+  const { isDark, mounted } = useThemeManager();
+
   React.useEffect(() => {
-    // Try to get the theme from localStorage
+    // Initial theme setup from localStorage or system preference
+    const root = document.documentElement;
+    const body = document.body;
     const savedTheme = localStorage.getItem('theme');
-    
-    // If theme exists in localStorage, apply it
+    let currentThemeIsDark = false;
+
     if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
+      currentThemeIsDark = true;
     } else if (savedTheme === 'light') {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
+      currentThemeIsDark = false;
     } else {
-      // If no theme in localStorage, check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (prefersDark) {
-        document.documentElement.classList.add('dark');
+      currentThemeIsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (currentThemeIsDark) {
+        root.classList.add('dark');
       } else {
-        document.documentElement.classList.remove('dark');
+        root.classList.remove('dark');
       }
     }
+    // Background image is now handled by global.css
   }, []);
-  const { isDark } = useThemeManager();
+
+  // This useEffect was for dynamically changing blend mode, 
+  // but we'll rely on global.css and a theme-friendly SVG for now.
+  // React.useEffect(() => {
+  //   if (mounted) {
+  //     document.body.style.backgroundBlendMode = isDark ? "overlay" : "normal";
+  //   }
+  // }, [isDark, mounted]);
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Add ColorSchemeScript to prevent flash of wrong theme */}
       </head>
-      <body className={`flex min-h-screen w-full flex-col antialiased ${isDark ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-900'}`}>
+      <body 
+        className={`flex min-h-screen w-full flex-col antialiased ${isDark ? 'text-gray-100' : 'text-gray-900'}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

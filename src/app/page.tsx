@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <main className={cn(
       "flex min-h-screen flex-col items-center justify-center p-8 text-center", // Adjusted padding and text-center
-      currentIsDark ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-800" 
+      currentIsDark ? "text-slate-100" : "text-slate-800" 
     )}>
       <motion.h1 
         className={cn(

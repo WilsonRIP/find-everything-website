@@ -74,7 +74,7 @@ export default function GameInfoClientPage({ game }: GameInfoClientPageProps) {
 
   if (!game) {
     return (
-      <main className={cn("min-h-screen p-8 md:p-12 flex flex-col items-center justify-center", currentIsDark ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-800")}>
+      <main className={cn("min-h-screen p-8 md:p-12 flex flex-col items-center justify-center", currentIsDark ? "text-slate-100" : "text-slate-800")}>
         <h1 className="text-4xl font-bold mb-4">Game Not Found</h1>
         <Link href="/gaming" className={cn("text-lg hover:underline", currentIsDark ? "text-sky-400 hover:text-sky-300" : "text-sky-600 hover:text-sky-700")}>
           &larr; Back to Gaming Page
@@ -86,7 +86,7 @@ export default function GameInfoClientPage({ game }: GameInfoClientPageProps) {
   const processedLongDescription = React.useMemo(() => processDescription(game.longDescription || '', game.citations), [game.longDescription, game.citations]);
 
   return (
-    <main className={cn("min-h-screen p-6 md:p-10", currentIsDark ? "bg-slate-900 text-slate-100" : "bg-slate-100 text-slate-900")}>
+    <main className={cn("min-h-screen p-6 md:p-10", currentIsDark ? "text-slate-100" : "text-slate-900")}>
       <div className="container mx-auto max-w-3xl">
         <Link href="/gaming" className={cn("mb-6 inline-block text-sm hover:underline", currentIsDark ? "text-sky-400 hover:text-sky-300" : "text-sky-600 hover:text-sky-700")}>
           &larr; Back to Gaming Page
